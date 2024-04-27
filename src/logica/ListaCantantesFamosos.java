@@ -5,6 +5,7 @@
 package logica;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -17,6 +18,8 @@ public class ListaCantantesFamosos {
 
     public static ArrayList<CantanteFamoso> cantantes = new ArrayList<>();
 
+    public static ArrayList<CantanteFamoso> cantantesDeMayorAMenor = new ArrayList<>();
+
 //    public static Iterator<CantanteFamoso> iterador = cantantes.iterator();
     public static void agregarCantante() {
 
@@ -28,6 +31,7 @@ public class ListaCantantesFamosos {
         int nmV = in.nextInt();
 
         cantantes.add(new CantanteFamoso(nm, dsc, nmV));
+        cantantesDeMayorAMenor.add(new CantanteFamoso(nm, dsc, nmV));
     }
 
     public static void mostrarCantantes() {
@@ -105,7 +109,19 @@ public class ListaCantantesFamosos {
 
         cantantes.remove(cantanteSeleccionado);
 
-        System.out.println("\nCantante eliminado exitosamente!.");
+        System.out.println("\nCantante eliminado exitosamente!");
+
+    }
+
+    public static void organizarMayoraMenor() {
+        Collections.sort(cantantesDeMayorAMenor);
+
+        int x = 1;
+        for (CantanteFamoso cantante : cantantesDeMayorAMenor) {
+            System.out.printf("\n\tCantante %d\n", x);
+            System.out.println("Nombre: " + cantante.getNombre() + "\nDisco con mas ventas: " + cantante.getDiscoConMasVentas() + "\nTotal de ventas: " + cantante.getTotalVentas() + "\n");
+            x++;
+        }
 
     }
 

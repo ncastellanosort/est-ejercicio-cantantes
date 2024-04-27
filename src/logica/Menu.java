@@ -22,7 +22,8 @@ public class Menu {
             System.out.println("2. Mostrar Cantantes");
             System.out.println("3. Editar cantante");
             System.out.println("4. Eliminar cantante");
-            System.out.println("5. Salir");
+            System.out.println("5. Mostrar cantantes con discos mas vendidos de mayor a menor");
+            System.out.println("6. Salir");
             System.out.println("\n---------------------------------------\n");
 
             System.out.println("Seleccione la opcion: ");
@@ -37,7 +38,7 @@ public class Menu {
                 case 2:
 
                     if (ListaCantantesFamosos.cantantes.isEmpty()) {
-                        System.out.println("No hay cantantes aun.");
+                        System.out.println("No hay cantantes aun!");
                         break;
                     } else {
                         ListaCantantesFamosos.mostrarCantantes();
@@ -58,6 +59,9 @@ public class Menu {
                     }
 
                 case 5:
+                    ListaCantantesFamosos.organizarMayoraMenor();
+                    break;
+                case 6:
                     System.out.println("\nHasta luego!");
                     cond = false;
                 default:

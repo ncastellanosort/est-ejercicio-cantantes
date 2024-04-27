@@ -8,7 +8,7 @@ package logica;
  *
  * @author Nicolas
  */
-public class CantanteFamoso {
+public class CantanteFamoso implements Comparable<CantanteFamoso>{
 
     private String nombre;
     private String discoConMasVentas;
@@ -47,6 +47,11 @@ public class CantanteFamoso {
 
     public void setTotalVentas(int totalVentas) {
         this.totalVentas = totalVentas;
+    }
+
+    @Override
+    public int compareTo(CantanteFamoso o) {
+        return Integer.compare(o.getTotalVentas(), this.totalVentas);
     }
 
 }
