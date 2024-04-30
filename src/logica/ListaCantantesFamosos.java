@@ -149,7 +149,7 @@ public class ListaCantantesFamosos {
     }
     
     public static String datosTablaFrame(int indice){
-        return "Nombre: " + ListaCantantesFamosos.cantantes.get(indice).getNombre() + " Disco con mas ventas: " + ListaCantantesFamosos.cantantes.get(indice).getDiscoConMasVentas() +" Numero de ventas: " + ListaCantantesFamosos.cantantes.get(indice).getTotalVentas();
+        return ListaCantantesFamosos.cantantes.get(indice).getNombre() + " " + ListaCantantesFamosos.cantantes.get(indice).getDiscoConMasVentas() +" " + ListaCantantesFamosos.cantantes.get(indice).getTotalVentas();
     
     }
 

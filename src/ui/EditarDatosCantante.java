@@ -42,7 +42,7 @@ public class EditarDatosCantante extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtfDiscoConMasVentasNuevo = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtfTotalVentasNuevo = new javax.swing.JTextField();
+        txtfNuevoNumeroTotalVentas = new javax.swing.JTextField();
         btnEnviarEdicionCantante = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -98,11 +98,11 @@ public class EditarDatosCantante extends javax.swing.JFrame {
         jLabel5.setText("Nuevo numero total de ventas");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, -1, -1));
 
-        txtfTotalVentasNuevo.setBackground(new java.awt.Color(153, 153, 153));
-        txtfTotalVentasNuevo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtfTotalVentasNuevo.setForeground(new java.awt.Color(0, 0, 0));
-        txtfTotalVentasNuevo.setBorder(null);
-        jPanel1.add(txtfTotalVentasNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 210, 30));
+        txtfNuevoNumeroTotalVentas.setBackground(new java.awt.Color(153, 153, 153));
+        txtfNuevoNumeroTotalVentas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtfNuevoNumeroTotalVentas.setForeground(new java.awt.Color(0, 0, 0));
+        txtfNuevoNumeroTotalVentas.setBorder(null);
+        jPanel1.add(txtfNuevoNumeroTotalVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 210, 30));
 
         btnEnviarEdicionCantante.setBackground(new java.awt.Color(153, 153, 153));
         btnEnviarEdicionCantante.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -163,7 +163,7 @@ public class EditarDatosCantante extends javax.swing.JFrame {
 
             cantanteSeleccionado.setNombre(txtfIngresarNombreNuevo.getText());
             cantanteSeleccionado.setDiscoConMasVentas(txtfDiscoConMasVentasNuevo.getText());
-            cantanteSeleccionado.setTotalVentas(Integer.parseInt(txtfDiscoConMasVentasNuevo.getText())); // esta linea esta jodida
+            cantanteSeleccionado.setTotalVentas(Integer.parseInt(txtfNuevoNumeroTotalVentas.getText())); // esta linea esta jodida
 
             JOptionPane.showMessageDialog(null, "Editado Exitosamente!");
 
@@ -172,8 +172,8 @@ public class EditarDatosCantante extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Ingrese bien los datos.");
             this.dispose();
-        }
 
+        }
 
     }//GEN-LAST:event_btnEnviarEdicionCantanteActionPerformed
 
@@ -201,10 +201,6 @@ public class EditarDatosCantante extends javax.swing.JFrame {
         this.lbNuevoNumeroVisitas = lbNuevoNumeroVisitas;
     }
 
-
-
-
-
     public JTextField getTxtfDiscoConMasVentasNuevo() {
         return txtfDiscoConMasVentasNuevo;
     }
@@ -225,16 +221,16 @@ public class EditarDatosCantante extends javax.swing.JFrame {
         return txtfIngresarNombreNuevo;
     }
 
-    public void setTxtfIngresarNombreNuevo(JTextField txtfIngresarNombreNuevo) {
-        this.txtfIngresarNombreNuevo = txtfIngresarNombreNuevo;
+    public JTextField getTxtfNuevoNumeroTotalVentas() {
+        return txtfNuevoNumeroTotalVentas;
     }
 
-    public JTextField getTxtfTotalVentasNuevo() {
-        return txtfTotalVentasNuevo;
+    public void setTxtfNuevoNumeroTotalVentas(JTextField txtfNuevoNumeroTotalVentas) {
+        this.txtfNuevoNumeroTotalVentas = txtfNuevoNumeroTotalVentas;
     }
 
     public void setTxtfTotalVentasNuevo(JTextField txtfTotalVentasNuevo) {
-        this.txtfTotalVentasNuevo = txtfTotalVentasNuevo;
+        this.txtfNuevoNumeroTotalVentas = txtfTotalVentasNuevo;
     }
 
 
@@ -296,6 +292,6 @@ public class EditarDatosCantante extends javax.swing.JFrame {
     private javax.swing.JTextField txtfDiscoConMasVentasNuevo;
     private javax.swing.JTextField txtfIngresarNombre1;
     private javax.swing.JTextField txtfIngresarNombreNuevo;
-    private javax.swing.JTextField txtfTotalVentasNuevo;
+    private javax.swing.JTextField txtfNuevoNumeroTotalVentas;
     // End of variables declaration//GEN-END:variables
 }

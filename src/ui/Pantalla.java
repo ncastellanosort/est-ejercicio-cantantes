@@ -5,6 +5,7 @@
 package ui;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import logica.ListaCantantesFamosos;
 
@@ -15,6 +16,14 @@ import logica.ListaCantantesFamosos;
 public class Pantalla extends javax.swing.JFrame {
 
     DefaultListModel modeloLista = new DefaultListModel();
+
+    public JList<String> getFrameListaCantantes() {
+        return frameListaCantantes;
+    }
+
+    public void setFrameListaCantantes(JList<String> frameListaCantantes) {
+        this.frameListaCantantes = frameListaCantantes;
+    }
 
     /**
      * Creates new form Pantalla
@@ -148,10 +157,10 @@ public class Pantalla extends javax.swing.JFrame {
         agregarCantante.setVisible(true);
 
         
-        for (int i = 0; i < ListaCantantesFamosos.cantantes.size(); i++) {
-            modeloLista.addElement(ListaCantantesFamosos.datosTablaFrame(i));
-            
-        }
+//        for (int i = 0; i < ListaCantantesFamosos.cantantes.size(); i++) {
+//            modeloLista.addElement(ListaCantantesFamosos.datosTablaFrame(i));
+//            
+//        }
         
 // TODO add your handling code here:
     }//GEN-LAST:event_btnAgregarCantante1ActionPerformed
