@@ -4,6 +4,8 @@
  */
 package logica;
 
+import ui.Pantalla;
+
 /**
  *
  * @author Nicolas
@@ -17,8 +19,14 @@ public class Test {
         
         Menu menu = new Menu();
         
-        menu.Menu();
+//        menu.Menu();
         
+        
+        Pantalla pantalla = new Pantalla();
+        
+        pantalla.setLocationRelativeTo(null);
+        pantalla.setResizable(false);
+        pantalla.setVisible(true);
 
 
     }

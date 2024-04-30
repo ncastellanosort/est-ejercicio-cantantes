@@ -7,6 +7,7 @@ package logica;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,17 +22,19 @@ public class ListaCantantesFamosos {
     public static ArrayList<CantanteFamoso> cantantesDeMayorAMenor = new ArrayList<>();
 
 //    public static Iterator<CantanteFamoso> iterador = cantantes.iterator();
-    public static void agregarCantante() {
+    public static void agregarCantante(String nombre, String disco, int totalVentas) {
 
-        System.out.println("Nombre del cantante: ");
-        String nm = in.nextLine();
-        System.out.println("Disco con mas ventas: ");
-        String dsc = in.nextLine();
-        System.out.println("Numero de ventas: ");
-        int nmV = in.nextInt();
+//        System.out.println("Nombre del cantante: ");
+//        String nm = JOptionPane.showInputDialog(null, "Nombre del cantante: ");
+//
+//        String dsc = JOptionPane.showInputDialog(null, "Disco con mas ventas: ");
+//        System.out.println("Numero de ventas: ");
+//
+//        int nmV = Integer.parseInt(JOptionPane.showInputDialog(null, "Numero de ventas: "));
+        cantantes.add(new CantanteFamoso(nombre, disco, totalVentas));
+        cantantesDeMayorAMenor.add(new CantanteFamoso(nombre, disco, totalVentas));
 
-        cantantes.add(new CantanteFamoso(nm, dsc, nmV));
-        cantantesDeMayorAMenor.add(new CantanteFamoso(nm, dsc, nmV));
+//        JOptionPane.showMessageDialog(null, "Agregado Exitosamente");
     }
 
     public static void mostrarCantantes() {
@@ -48,7 +51,6 @@ public class ListaCantantesFamosos {
         int x = 1;
         for (CantanteFamoso cantante : cantantes) {
             System.out.println("\nCantante " + x + ". Nombre: " + cantante.getNombre());
-
             x++;
         }
     }
@@ -61,7 +63,8 @@ public class ListaCantantesFamosos {
         mostrarNombreCantantes();
 
         System.out.println("\nSeleccione el indice del cantante: ");
-        int ind = in.nextInt();
+
+        int ind = Integer.parseInt(JOptionPane.showInputDialog(null, "Seleccione el indice del cantante: "));
         CantanteFamoso cantanteSeleccionado = cantantes.get(ind - 1);
 
         System.out.println("\nEl cantante seleccionado fue: " + cantanteSeleccionado.getNombre());
@@ -100,7 +103,7 @@ public class ListaCantantesFamosos {
 
     }
 
-    public static void eliminarCantante() {
+    public static void eliminarCantante(String nombre) {
         mostrarNombreCantantes();
 
         System.out.println("\nSeleccione el indice del cantante: ");
@@ -113,6 +116,11 @@ public class ListaCantantesFamosos {
 
     }
 
+    public static void eliminarCantanteJframe(int ind) {
+        CantanteFamoso cantanteSeleccionado = cantantes.get(ind - 1);
+        cantantes.remove(cantanteSeleccionado);
+    }
+
     public static void organizarMayoraMenor() {
         Collections.sort(cantantesDeMayorAMenor);
 
@@ -123,6 +131,26 @@ public class ListaCantantesFamosos {
             x++;
         }
 
+    }
+
+    public static String mostrarNombreCantantesJframe() {
+        int x = 1;
+        ArrayList<String> nombres = new ArrayList();
+
+        for (CantanteFamoso cantante : cantantes) {
+
+            nombres.add(x + ". " + cantante.getNombre());
+
+            x++;
+        }
+
+        return nombres.toString();
+
+    }
+    
+    public static String datosTablaFrame(int indice){
+        return "Nombre: " + ListaCantantesFamosos.cantantes.get(indice).getNombre() + " Disco con mas ventas: " + ListaCantantesFamosos.cantantes.get(indice).getDiscoConMasVentas() +" Numero de ventas: " + ListaCantantesFamosos.cantantes.get(indice).getTotalVentas();
+    
     }
 
 }

@@ -32,7 +32,7 @@ public class Menu {
             switch (opc) {
                 case 1:
 
-                    ListaCantantesFamosos.agregarCantante();
+//                    ListaCantantesFamosos.agregarCantante();
                     break;
 
                 case 2:
@@ -54,13 +54,19 @@ public class Menu {
                         System.out.println("No hay cantantes aun.");
                         break;
                     } else {
-                        ListaCantantesFamosos.eliminarCantante();
+//                        ListaCantantesFamosos.eliminarCantante();
                         break;
                     }
 
                 case 5:
-                    ListaCantantesFamosos.organizarMayoraMenor();
-                    break;
+
+                    if (ListaCantantesFamosos.cantantesDeMayorAMenor.isEmpty()) {
+                        System.out.println("No hay cantantes aun.");
+                        break;
+                    } else {
+                        ListaCantantesFamosos.organizarMayoraMenor();
+                        break;
+                    }
                 case 6:
                     System.out.println("\nHasta luego!");
                     cond = false;
