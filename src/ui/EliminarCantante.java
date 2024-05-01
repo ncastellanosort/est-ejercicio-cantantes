@@ -4,8 +4,12 @@
  */
 package ui;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import logica.ListaCantantesFamosos;
 
@@ -15,10 +19,14 @@ import logica.ListaCantantesFamosos;
  */
 public class EliminarCantante extends javax.swing.JFrame {
 
+    Fondo fondo = new Fondo();
+
     /**
      * Creates new form EliminarCantante
      */
     public EliminarCantante() {
+        
+        this.setContentPane(fondo);
         initComponents();
     }
 
@@ -33,7 +41,6 @@ public class EliminarCantante extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         txtfIngresarNombre = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtfnombreEliminarCantante = new javax.swing.JTextField();
@@ -51,35 +58,35 @@ public class EliminarCantante extends javax.swing.JFrame {
         txtfIngresarNombre.setBorder(null);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(613, 497));
+        setMinimumSize(new java.awt.Dimension(613, 497));
+        setPreferredSize(new java.awt.Dimension(613, 497));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel1.setFont(new java.awt.Font("Harlow Solid Italic", 0, 54)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 0, 102));
+        jLabel1.setText(" Eliminar Cantante ");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Eliminar Cantante");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Cantantes");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
 
-        txtfnombreEliminarCantante.setBackground(new java.awt.Color(153, 153, 153));
-        txtfnombreEliminarCantante.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtfnombreEliminarCantante.setForeground(new java.awt.Color(0, 0, 0));
+        txtfnombreEliminarCantante.setBackground(new java.awt.Color(102, 0, 102));
+        txtfnombreEliminarCantante.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtfnombreEliminarCantante.setForeground(new java.awt.Color(255, 255, 255));
         txtfnombreEliminarCantante.setBorder(null);
         txtfnombreEliminarCantante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtfnombreEliminarCantanteActionPerformed(evt);
             }
         });
-        jPanel1.add(txtfnombreEliminarCantante, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 210, 30));
+        getContentPane().add(txtfnombreEliminarCantante, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 210, 40));
 
-        btnEliminarCantante.setBackground(new java.awt.Color(153, 153, 153));
-        btnEliminarCantante.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnEliminarCantante.setForeground(new java.awt.Color(0, 0, 0));
+        btnEliminarCantante.setBackground(new java.awt.Color(102, 0, 102));
+        btnEliminarCantante.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnEliminarCantante.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminarCantante.setText("Eliminar");
         btnEliminarCantante.setBorder(null);
         btnEliminarCantante.addActionListener(new java.awt.event.ActionListener() {
@@ -87,28 +94,24 @@ public class EliminarCantante extends javax.swing.JFrame {
                 btnEliminarCantanteActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEliminarCantante, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 120, 30));
+        getContentPane().add(btnEliminarCantante, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 180, 50));
 
-        lbNombresCantantes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbNombresCantantes.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(lbNombresCantantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 440, 30));
+        lbNombresCantantes.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbNombresCantantes.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(lbNombresCantantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 510, 30));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Indice");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 420));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarCantanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarCantanteActionPerformed
 
-        
         try {
             ListaCantantesFamosos.eliminarCantanteJframe(Integer.parseInt(txtfnombreEliminarCantante.getText()));
-
 
             JOptionPane.showMessageDialog(null, "Eliminado Exitosamente!");
             this.dispose();
@@ -174,7 +177,6 @@ public class EliminarCantante extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbNombresCantantes;
     private javax.swing.JTextField txtfIngresarNombre;
     public static javax.swing.JTextField txtfnombreEliminarCantante;
@@ -186,5 +188,23 @@ public class EliminarCantante extends javax.swing.JFrame {
 
     public void setLbNombresCantantes(JLabel lbNombresCantantes) {
         this.lbNombresCantantes = lbNombresCantantes;
+    }
+
+    class Fondo extends JPanel {
+
+        private Image imagen;
+
+        @Override
+        public void paint(Graphics g) {
+            imagen = new ImageIcon(getClass().getResource("/imagenes/imagenFondo.jpg")).getImage();
+
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+
+            setOpaque(false);
+
+            super.paint(g);
+
+        }
+
     }
 }

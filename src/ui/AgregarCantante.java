@@ -4,7 +4,11 @@
  */
 package ui;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import logica.ListaCantantesFamosos;
 
 /**
@@ -12,11 +16,14 @@ import logica.ListaCantantesFamosos;
  * @author Nicolas
  */
 public class AgregarCantante extends javax.swing.JFrame {
+    
+    Fondo fondo = new Fondo();
 
     /**
      * Creates new form AgregarCantante
      */
     public AgregarCantante() {
+        this.setContentPane(fondo);
         initComponents();
 
     }
@@ -32,7 +39,6 @@ public class AgregarCantante extends javax.swing.JFrame {
 
         jLabel4 = new javax.swing.JLabel();
         txtfIngresarNombre1 = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtfIngresarNombre = new javax.swing.JTextField();
@@ -47,62 +53,61 @@ public class AgregarCantante extends javax.swing.JFrame {
         jLabel4.setText("Nombre");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(650, 519));
+        setMinimumSize(new java.awt.Dimension(650, 519));
+        setPreferredSize(new java.awt.Dimension(650, 519));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel1.setBackground(new java.awt.Color(102, 0, 102));
+        jLabel1.setFont(new java.awt.Font("Harlow Solid Italic", 0, 64)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 0, 102));
+        jLabel1.setText(" Agregar Cantante ");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Agregar Cantante");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 91, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, -1));
 
-        txtfIngresarNombre.setBackground(new java.awt.Color(153, 153, 153));
-        txtfIngresarNombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtfIngresarNombre.setForeground(new java.awt.Color(0, 0, 0));
+        txtfIngresarNombre.setBackground(new java.awt.Color(102, 0, 102));
+        txtfIngresarNombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtfIngresarNombre.setForeground(new java.awt.Color(255, 255, 255));
         txtfIngresarNombre.setBorder(null);
-        jPanel1.add(txtfIngresarNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 123, 210, 30));
+        getContentPane().add(txtfIngresarNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 270, 40));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Disco con mas ventas");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, -1, -1));
 
-        txtfDiscoConMasVentas.setBackground(new java.awt.Color(153, 153, 153));
-        txtfDiscoConMasVentas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtfDiscoConMasVentas.setForeground(new java.awt.Color(0, 0, 0));
+        txtfDiscoConMasVentas.setBackground(new java.awt.Color(102, 0, 102));
+        txtfDiscoConMasVentas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtfDiscoConMasVentas.setForeground(new java.awt.Color(255, 255, 255));
         txtfDiscoConMasVentas.setBorder(null);
-        jPanel1.add(txtfDiscoConMasVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 210, 30));
+        getContentPane().add(txtfDiscoConMasVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 270, 40));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Total ventas");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, -1, -1));
 
-        txtfTotalVentas.setBackground(new java.awt.Color(153, 153, 153));
-        txtfTotalVentas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtfTotalVentas.setForeground(new java.awt.Color(0, 0, 0));
+        txtfTotalVentas.setBackground(new java.awt.Color(102, 0, 102));
+        txtfTotalVentas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtfTotalVentas.setForeground(new java.awt.Color(255, 255, 255));
         txtfTotalVentas.setBorder(null);
-        jPanel1.add(txtfTotalVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 210, 30));
+        getContentPane().add(txtfTotalVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 270, 40));
 
-        btnAgregarCantanteFrame.setBackground(new java.awt.Color(153, 153, 153));
-        btnAgregarCantanteFrame.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnAgregarCantanteFrame.setForeground(new java.awt.Color(0, 0, 0));
+        btnAgregarCantanteFrame.setBackground(new java.awt.Color(102, 0, 102));
+        btnAgregarCantanteFrame.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnAgregarCantanteFrame.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregarCantanteFrame.setText("Agregar");
-        btnAgregarCantanteFrame.setBorder(null);
+        btnAgregarCantanteFrame.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnAgregarCantanteFrame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarCantanteFrameActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAgregarCantanteFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 120, 30));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 420));
+        getContentPane().add(btnAgregarCantanteFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 400, 180, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -159,6 +164,28 @@ public class AgregarCantante extends javax.swing.JFrame {
             }
         });
     }
+    
+    
+    
+    class Fondo extends JPanel{
+    
+        private Image imagen;
+        
+        
+        @Override
+        public void paint(Graphics g){
+            imagen = new ImageIcon(getClass().getResource("/imagenes/imagenFondo.jpg")).getImage();
+            
+            
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(),this);
+            
+            setOpaque(false);
+            
+            super.paint(g);
+            
+        }
+    
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarCantanteFrame;
@@ -167,7 +194,6 @@ public class AgregarCantante extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtfDiscoConMasVentas;
     private javax.swing.JTextField txtfIngresarNombre;
     private javax.swing.JTextField txtfIngresarNombre1;

@@ -4,9 +4,13 @@
  */
 package ui;
 
+import java.awt.Graphics;
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import logica.CantanteFamoso;
 import logica.ListaCantantesFamosos;
@@ -17,29 +21,33 @@ import logica.ListaCantantesFamosos;
  */
 public class Pantalla extends javax.swing.JFrame {
     
+    Fondo fondo = new Fondo();
+    
+    
+
     DefaultTableModel modelo = new DefaultTableModel();
-    
+
     String[] columnas = {"Nombre", "Disco mas vendido", "Numero ventas"};
-    
-    
 
     /**
      * Creates new form Pantalla
      *
      *
      */
-    // ARREGLAR EL CONSTRUCTOR
-//    ListaCantantesFamosos listaCantantesFamosos;
-//    public Pantalla(ListaCantantesFamosos lista) {
     public Pantalla() {
+        
+        this.setContentPane(fondo);
+        
+        
+        
         initComponents();
-        
-        modelo.setColumnIdentifiers(columnas);
-        
-        tablaCantantes.setModel(modelo);
 
-        // ACA TAMBIEN
-//        llenarTabla(lista);
+        modelo.setColumnIdentifiers(columnas);
+
+        tablaCantantes.setModel(modelo);
+        
+        tablaCantantes.setRowHeight(40);
+
     }
 
     /**
@@ -51,86 +59,65 @@ public class Pantalla extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         btnEliminarCantante = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         btnAgregarCantante1 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        btnVerTablaOrdenada = new javax.swing.JButton();
+        btnSalirApp = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaCantantes = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         btnEditarCantante1 = new javax.swing.JButton();
+        btnVerTablaOrdenada1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1280, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel1.setBackground(new java.awt.Color(255, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Harlow Solid Italic", 0, 64)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 0, 102));
+        jLabel1.setText("Rgb Music Label Records");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Ejercicio Cantantes");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Eliminar cantante");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, -1, -1));
-
-        btnEliminarCantante.setBackground(new java.awt.Color(153, 153, 153));
-        btnEliminarCantante.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnEliminarCantante.setForeground(new java.awt.Color(0, 0, 0));
-        btnEliminarCantante.setText("Eliminar");
-        btnEliminarCantante.setBorder(null);
+        btnEliminarCantante.setBackground(new java.awt.Color(102, 0, 102));
+        btnEliminarCantante.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnEliminarCantante.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminarCantante.setText("Eliminar cantante");
+        btnEliminarCantante.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         btnEliminarCantante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarCantanteActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEliminarCantante, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 470, 90, 30));
+        getContentPane().add(btnEliminarCantante, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 410, 250, 50));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Agregar cantante");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, -1, -1));
-
-        btnAgregarCantante1.setBackground(new java.awt.Color(153, 153, 153));
-        btnAgregarCantante1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnAgregarCantante1.setForeground(new java.awt.Color(0, 0, 0));
-        btnAgregarCantante1.setText("Agregar");
-        btnAgregarCantante1.setBorder(null);
+        btnAgregarCantante1.setBackground(new java.awt.Color(102, 0, 102));
+        btnAgregarCantante1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnAgregarCantante1.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarCantante1.setText("Agregar cantante");
+        btnAgregarCantante1.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         btnAgregarCantante1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarCantante1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAgregarCantante1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, 90, 30));
+        getContentPane().add(btnAgregarCantante1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 170, 250, 50));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Actualizar tabla");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 430, -1, -1));
-
-        btnVerTablaOrdenada.setBackground(new java.awt.Color(153, 153, 153));
-        btnVerTablaOrdenada.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnVerTablaOrdenada.setForeground(new java.awt.Color(0, 0, 0));
-        btnVerTablaOrdenada.setText("Ver");
-        btnVerTablaOrdenada.setBorder(null);
-        btnVerTablaOrdenada.addActionListener(new java.awt.event.ActionListener() {
+        btnSalirApp.setBackground(new java.awt.Color(153, 0, 102));
+        btnSalirApp.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnSalirApp.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalirApp.setText("Salir");
+        btnSalirApp.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        btnSalirApp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVerTablaOrdenadaActionPerformed(evt);
+                btnSalirAppActionPerformed(evt);
             }
         });
-        jPanel1.add(btnVerTablaOrdenada, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 550, 90, 30));
+        getContentPane().add(btnSalirApp, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 570, 250, 50));
 
-        tablaCantantes.setBackground(new java.awt.Color(153, 153, 153));
-        tablaCantantes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        tablaCantantes.setForeground(new java.awt.Color(0, 0, 0));
+        tablaCantantes.setBackground(new java.awt.Color(0, 0, 0));
+        tablaCantantes.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        tablaCantantes.setForeground(new java.awt.Color(255, 255, 255));
         tablaCantantes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -141,49 +128,113 @@ public class Pantalla extends javax.swing.JFrame {
             new String [] {
                 "Title 1", "Title 2", "Title 3"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablaCantantes.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        tablaCantantes.setAutoscrolls(false);
+        tablaCantantes.setFocusable(false);
+        tablaCantantes.setGridColor(new java.awt.Color(153, 0, 153));
+        tablaCantantes.setMaximumSize(new java.awt.Dimension(800, 234242342));
+        tablaCantantes.setMinimumSize(new java.awt.Dimension(800, 600));
+        tablaCantantes.setPreferredSize(new java.awt.Dimension(800, 600));
+        tablaCantantes.setRowSelectionAllowed(false);
+        tablaCantantes.setSelectionBackground(new java.awt.Color(102, 0, 102));
+        tablaCantantes.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(tablaCantantes);
+        if (tablaCantantes.getColumnModel().getColumnCount() > 0) {
+            tablaCantantes.getColumnModel().getColumn(0).setResizable(false);
+            tablaCantantes.getColumnModel().getColumn(1).setResizable(false);
+            tablaCantantes.getColumnModel().getColumn(2).setResizable(false);
+        }
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 380, 330));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 670, 450));
 
-        jButton1.setBackground(new java.awt.Color(153, 153, 153));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Actualizar");
-        jButton1.setBorder(null);
+        jButton1.setBackground(new java.awt.Color(102, 0, 102));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Actualizar tabla");
+        jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 470, 110, 30));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 330, 250, 50));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Ver cantantes ordenados de mayor a menor por sus vistas");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 520, -1, -1));
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Editar cantante");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, -1, -1));
-
-        btnEditarCantante1.setBackground(new java.awt.Color(153, 153, 153));
-        btnEditarCantante1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnEditarCantante1.setForeground(new java.awt.Color(0, 0, 0));
-        btnEditarCantante1.setText("Editar");
-        btnEditarCantante1.setBorder(null);
+        btnEditarCantante1.setBackground(new java.awt.Color(102, 0, 102));
+        btnEditarCantante1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnEditarCantante1.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditarCantante1.setText("Editar cantante");
+        btnEditarCantante1.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         btnEditarCantante1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarCantante1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEditarCantante1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 470, 90, 30));
+        getContentPane().add(btnEditarCantante1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 250, 250, 50));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 620));
+        btnVerTablaOrdenada1.setBackground(new java.awt.Color(102, 0, 102));
+        btnVerTablaOrdenada1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnVerTablaOrdenada1.setForeground(new java.awt.Color(255, 255, 255));
+        btnVerTablaOrdenada1.setText("Top global de vistas");
+        btnVerTablaOrdenada1.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        btnVerTablaOrdenada1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerTablaOrdenada1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnVerTablaOrdenada1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 490, 250, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEditarCantante1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarCantante1ActionPerformed
+
+        EditarCantante editarCantante = new EditarCantante();
+
+        if (ListaCantantesFamosos.cantantes.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No hay cantantes aun.");
+        } else {
+
+            editarCantante.setLocationRelativeTo(null);
+            editarCantante.setResizable(false);
+            editarCantante.setVisible(true);
+
+            editarCantante.getLbNombresCantantesEditar().setText(ListaCantantesFamosos.mostrarNombreCantantesJframe());
+
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarCantante1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        llenarTabla(ListaCantantesFamosos.cantantes);
+
+        // MIRAR ACA TAMBIEN
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnSalirAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirAppActionPerformed
+
+        this.dispose();
+    }//GEN-LAST:event_btnSalirAppActionPerformed
+
+    private void btnAgregarCantante1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCantante1ActionPerformed
+
+        AgregarCantante agregarCantante = new AgregarCantante();
+
+        agregarCantante.setLocationRelativeTo(null);
+        agregarCantante.setResizable(false);
+        agregarCantante.setVisible(true);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAgregarCantante1ActionPerformed
 
     private void btnEliminarCantanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarCantanteActionPerformed
 
@@ -202,10 +253,26 @@ public class Pantalla extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarCantanteActionPerformed
 
+    private void btnVerTablaOrdenada1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTablaOrdenada1ActionPerformed
+        // TODO add your handling code here:
+        
+        ListaOrdenada listaOrdenada = new ListaOrdenada();
+        
+        if(ListaCantantesFamosos.cantantesDeMayorAMenor.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Aun no hay cantantes.");
+        }else{
+            listaOrdenada.setLocationRelativeTo(null);
+            listaOrdenada.setResizable(false);
+            listaOrdenada.setVisible(true);
+        }
+        
+    }//GEN-LAST:event_btnVerTablaOrdenada1ActionPerformed
+
     // METODO PARA LLENAR LA TABLA
     public void llenarTabla(ArrayList<CantanteFamoso> lista) {
         DefaultTableModel modelo = new DefaultTableModel(new String[]{"Nombre", "Disco mas vendido", "Numero ventas"},
                 0);
+        
 
         // crear el iterartor de tip cantante famoso
         Iterator<CantanteFamoso> iterator = ListaCantantesFamosos.cantantes.iterator();
@@ -213,7 +280,7 @@ public class Pantalla extends javax.swing.JFrame {
         // la forma de recorrer con el iterator
         while (iterator.hasNext()) {
             CantanteFamoso cantante = iterator.next();
-            
+
             // crea un objeto que se pasa commo fila a la tabla
             Object[] fila = {cantante.getNombre(), cantante.getDiscoConMasVentas(), cantante.getTotalVentas()};
             modelo.addRow(fila);
@@ -223,57 +290,30 @@ public class Pantalla extends javax.swing.JFrame {
     }
 
 
-    private void btnAgregarCantante1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCantante1ActionPerformed
-
-        AgregarCantante agregarCantante = new AgregarCantante();
-
-        agregarCantante.setLocationRelativeTo(null);
-        agregarCantante.setResizable(false);
-        agregarCantante.setVisible(true);
-
-// TODO add your handling code here:
-    }//GEN-LAST:event_btnAgregarCantante1ActionPerformed
-
-    private void btnVerTablaOrdenadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTablaOrdenadaActionPerformed
-
-        ListaOrdenada listaOrd = new ListaOrdenada();
-        listaOrd.setLocationRelativeTo(null);
-        listaOrd.setResizable(false);
-        listaOrd.setVisible(true);
-//        
-//        ListaCantantesFamosos.organizarMayoraMenor(ListaCantantesFamosos.cantantesDeMayorAMenor);
-        // MANDAR A LLENAR LA OTRA TABLA DESDE ESTE BOTON
-
-    }//GEN-LAST:event_btnVerTablaOrdenadaActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        llenarTabla(ListaCantantesFamosos.cantantes);
-
-        // MIRAR ACA TAMBIEN
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void btnEditarCantante1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarCantante1ActionPerformed
-
-        EditarCantante editarCantante = new EditarCantante();
+    
+    // PARA EL FONDO DE LA PANTALLA
+    
+    class Fondo extends JPanel{
+    
+        private Image imagen;
         
         
-
-        if (ListaCantantesFamosos.cantantes.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "No hay cantantes aun.");
-        } else {
-
-            editarCantante.setLocationRelativeTo(null);
-            editarCantante.setResizable(false);
-            editarCantante.setVisible(true);
+        @Override
+        public void paint(Graphics g){
+            imagen = new ImageIcon(getClass().getResource("/imagenes/imagenFondo.jpg")).getImage();
             
-            editarCantante.getLbNombresCantantesEditar().setText(ListaCantantesFamosos.mostrarNombreCantantesJframe());
-           
-
+            
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(),this);
+            
+            setOpaque(false);
+            
+            super.paint(g);
+            
         }
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEditarCantante1ActionPerformed
-
+    
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -282,15 +322,10 @@ public class Pantalla extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregarCantante1;
     private javax.swing.JButton btnEditarCantante1;
     private javax.swing.JButton btnEliminarCantante;
-    private javax.swing.JButton btnVerTablaOrdenada;
+    private javax.swing.JButton btnSalirApp;
+    private javax.swing.JButton btnVerTablaOrdenada1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablaCantantes;
     // End of variables declaration//GEN-END:variables

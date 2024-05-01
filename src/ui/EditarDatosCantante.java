@@ -4,8 +4,12 @@
  */
 package ui;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import logica.CantanteFamoso;
 import logica.ListaCantantesFamosos;
@@ -18,10 +22,14 @@ import static ui.EditarCantante.txtfIndiceEditarCantante;
  */
 public class EditarDatosCantante extends javax.swing.JFrame {
 
+    Fondo fondo = new Fondo();
+
     /**
      * Creates new form AgregarCantante
      */
     public EditarDatosCantante() {
+        
+        this.setContentPane(fondo);
         initComponents();
     }
 
@@ -36,7 +44,6 @@ public class EditarDatosCantante extends javax.swing.JFrame {
 
         jLabel4 = new javax.swing.JLabel();
         txtfIngresarNombre1 = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lbNuevoNumeroVisitas = new javax.swing.JLabel();
         txtfIngresarNombreNuevo = new javax.swing.JTextField();
@@ -58,99 +65,97 @@ public class EditarDatosCantante extends javax.swing.JFrame {
         jLabel4.setText("Nombre");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(717, 734));
+        setMinimumSize(new java.awt.Dimension(717, 734));
+        setPreferredSize(new java.awt.Dimension(717, 734));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel1.setFont(new java.awt.Font("Harlow Solid Italic", 0, 64)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 0, 102));
+        jLabel1.setText(" Editar Cantante ");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Editar Cantante");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
+        lbNuevoNumeroVisitas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbNuevoNumeroVisitas.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(lbNuevoNumeroVisitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 220, 30));
 
-        lbNuevoNumeroVisitas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lbNuevoNumeroVisitas.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(lbNuevoNumeroVisitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 140, 20));
-
-        txtfIngresarNombreNuevo.setBackground(new java.awt.Color(153, 153, 153));
-        txtfIngresarNombreNuevo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtfIngresarNombreNuevo.setForeground(new java.awt.Color(0, 0, 0));
+        txtfIngresarNombreNuevo.setBackground(new java.awt.Color(102, 0, 102));
+        txtfIngresarNombreNuevo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtfIngresarNombreNuevo.setForeground(new java.awt.Color(255, 255, 255));
         txtfIngresarNombreNuevo.setBorder(null);
         txtfIngresarNombreNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtfIngresarNombreNuevoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtfIngresarNombreNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 210, 30));
+        getContentPane().add(txtfIngresarNombreNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 210, 40));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nuevo disco con mas ventas");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, -1, -1));
 
-        txtfDiscoConMasVentasNuevo.setBackground(new java.awt.Color(153, 153, 153));
-        txtfDiscoConMasVentasNuevo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtfDiscoConMasVentasNuevo.setForeground(new java.awt.Color(0, 0, 0));
+        txtfDiscoConMasVentasNuevo.setBackground(new java.awt.Color(102, 0, 102));
+        txtfDiscoConMasVentasNuevo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtfDiscoConMasVentasNuevo.setForeground(new java.awt.Color(255, 255, 255));
         txtfDiscoConMasVentasNuevo.setBorder(null);
-        jPanel1.add(txtfDiscoConMasVentasNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 210, 30));
+        getContentPane().add(txtfDiscoConMasVentasNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, 210, 40));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Nuevo numero total de ventas");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 500, -1, -1));
 
-        txtfNuevoNumeroTotalVentas.setBackground(new java.awt.Color(153, 153, 153));
-        txtfNuevoNumeroTotalVentas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtfNuevoNumeroTotalVentas.setForeground(new java.awt.Color(0, 0, 0));
+        txtfNuevoNumeroTotalVentas.setBackground(new java.awt.Color(102, 0, 102));
+        txtfNuevoNumeroTotalVentas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtfNuevoNumeroTotalVentas.setForeground(new java.awt.Color(255, 255, 255));
         txtfNuevoNumeroTotalVentas.setBorder(null);
-        jPanel1.add(txtfNuevoNumeroTotalVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 210, 30));
+        getContentPane().add(txtfNuevoNumeroTotalVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 530, 210, 40));
 
-        btnEnviarEdicionCantante.setBackground(new java.awt.Color(153, 153, 153));
-        btnEnviarEdicionCantante.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnEnviarEdicionCantante.setForeground(new java.awt.Color(0, 0, 0));
+        btnEnviarEdicionCantante.setBackground(new java.awt.Color(102, 0, 102));
+        btnEnviarEdicionCantante.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnEnviarEdicionCantante.setForeground(new java.awt.Color(255, 255, 255));
         btnEnviarEdicionCantante.setText("Editar");
-        btnEnviarEdicionCantante.setBorder(null);
+        btnEnviarEdicionCantante.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnEnviarEdicionCantante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEnviarEdicionCantanteActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEnviarEdicionCantante, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, 120, 30));
+        getContentPane().add(btnEnviarEdicionCantante, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 600, 170, 50));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Nuevo nombre");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Numero de ventas");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, -1, -1));
 
-        lbNuevoNombreCantante.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lbNuevoNombreCantante.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(lbNuevoNombreCantante, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 140, 20));
+        lbNuevoNombreCantante.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbNuevoNombreCantante.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(lbNuevoNombreCantante, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 220, 30));
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Seleccionado");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Nombre");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, -1, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, -1, -1));
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Disco");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, -1, -1));
 
-        lbNuevoDiscoVentasEditar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lbNuevoDiscoVentasEditar.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(lbNuevoDiscoVentasEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 140, 20));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 580));
+        lbNuevoDiscoVentasEditar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbNuevoDiscoVentasEditar.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(lbNuevoDiscoVentasEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 220, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -280,6 +285,24 @@ public class EditarDatosCantante extends javax.swing.JFrame {
         });
     }
 
+    class Fondo extends JPanel {
+
+        private Image imagen;
+
+        @Override
+        public void paint(Graphics g) {
+            imagen = new ImageIcon(getClass().getResource("/imagenes/imagenFondo.jpg")).getImage();
+
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+
+            setOpaque(false);
+
+            super.paint(g);
+
+        }
+
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnviarEdicionCantante;
     private javax.swing.JLabel jLabel1;
@@ -291,7 +314,6 @@ public class EditarDatosCantante extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbNuevoDiscoVentasEditar;
     private javax.swing.JLabel lbNuevoNombreCantante;
     private javax.swing.JLabel lbNuevoNumeroVisitas;

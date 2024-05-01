@@ -4,8 +4,13 @@
  */
 package ui;
 
+import java.awt.Graphics;
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import logica.CantanteFamoso;
 import logica.ListaCantantesFamosos;
@@ -15,6 +20,8 @@ import logica.ListaCantantesFamosos;
  * @author Nicolas
  */
 public class ListaOrdenada extends javax.swing.JFrame {
+    
+    Fondo fondo = new Fondo();
 
     DefaultTableModel modelo = new DefaultTableModel();
 
@@ -26,12 +33,16 @@ public class ListaOrdenada extends javax.swing.JFrame {
      *
      */
     public ListaOrdenada() {
+        this.setContentPane(fondo);
+        
         initComponents();
-//        llenarTabla(lista);
+
 
         modelo.setColumnIdentifiers(columnas);
 
         tablaOrdenadaCantantes.setModel(modelo);
+
+        tablaOrdenadaCantantes.setRowHeight(40);
 
     }
 
@@ -44,34 +55,26 @@ public class ListaOrdenada extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         btnVolverInicio = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaOrdenadaCantantes = new javax.swing.JTable();
         btnActualizarTablaOrdenada = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1280, 720));
+        setMinimumSize(new java.awt.Dimension(1280, 720));
+        setPreferredSize(new java.awt.Dimension(1280, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel1.setFont(new java.awt.Font("Harlow Solid Italic", 0, 64)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 0, 102));
+        jLabel1.setText(" Top global de vistas ");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Ejercicio Cantantes");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Volver");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 520, -1, -1));
-
-        btnVolverInicio.setBackground(new java.awt.Color(153, 153, 153));
-        btnVolverInicio.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnVolverInicio.setForeground(new java.awt.Color(0, 0, 0));
+        btnVolverInicio.setBackground(new java.awt.Color(102, 0, 102));
+        btnVolverInicio.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnVolverInicio.setForeground(new java.awt.Color(255, 255, 255));
         btnVolverInicio.setText("Volver");
         btnVolverInicio.setBorder(null);
         btnVolverInicio.addActionListener(new java.awt.event.ActionListener() {
@@ -79,16 +82,11 @@ public class ListaOrdenada extends javax.swing.JFrame {
                 btnVolverInicioActionPerformed(evt);
             }
         });
-        jPanel1.add(btnVolverInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 560, 90, 30));
+        getContentPane().add(btnVolverInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 400, 220, 50));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Actualizar tabla");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 520, -1, -1));
-
-        tablaOrdenadaCantantes.setBackground(new java.awt.Color(153, 153, 153));
-        tablaOrdenadaCantantes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        tablaOrdenadaCantantes.setForeground(new java.awt.Color(0, 0, 0));
+        tablaOrdenadaCantantes.setBackground(new java.awt.Color(0, 0, 0));
+        tablaOrdenadaCantantes.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        tablaOrdenadaCantantes.setForeground(new java.awt.Color(255, 255, 255));
         tablaOrdenadaCantantes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -99,24 +97,39 @@ public class ListaOrdenada extends javax.swing.JFrame {
             new String [] {
                 "Title 1", "Title 2", "Title 3"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablaOrdenadaCantantes.setGridColor(new java.awt.Color(153, 0, 153));
+        tablaOrdenadaCantantes.setMaximumSize(new java.awt.Dimension(800, 3231312));
+        tablaOrdenadaCantantes.setMinimumSize(new java.awt.Dimension(800, 600));
+        tablaOrdenadaCantantes.setPreferredSize(new java.awt.Dimension(800, 600));
         jScrollPane1.setViewportView(tablaOrdenadaCantantes);
+        if (tablaOrdenadaCantantes.getColumnModel().getColumnCount() > 0) {
+            tablaOrdenadaCantantes.getColumnModel().getColumn(0).setResizable(false);
+            tablaOrdenadaCantantes.getColumnModel().getColumn(1).setResizable(false);
+            tablaOrdenadaCantantes.getColumnModel().getColumn(2).setResizable(false);
+        }
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, -1, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 690, 410));
 
-        btnActualizarTablaOrdenada.setBackground(new java.awt.Color(153, 153, 153));
-        btnActualizarTablaOrdenada.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnActualizarTablaOrdenada.setForeground(new java.awt.Color(0, 0, 0));
-        btnActualizarTablaOrdenada.setText("Actualizar");
+        btnActualizarTablaOrdenada.setBackground(new java.awt.Color(102, 0, 102));
+        btnActualizarTablaOrdenada.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnActualizarTablaOrdenada.setForeground(new java.awt.Color(255, 255, 255));
+        btnActualizarTablaOrdenada.setText("Actualizar tabla");
         btnActualizarTablaOrdenada.setBorder(null);
         btnActualizarTablaOrdenada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarTablaOrdenadaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnActualizarTablaOrdenada, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 560, 110, 30));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 620));
+        getContentPane().add(btnActualizarTablaOrdenada, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 330, 220, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -146,16 +159,39 @@ public class ListaOrdenada extends javax.swing.JFrame {
 
     private void btnActualizarTablaOrdenadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTablaOrdenadaActionPerformed
 
-        
-        
         ListaCantantesFamosos.organizarMayoraMenor(ListaCantantesFamosos.cantantesDeMayorAMenor);
-        
-        llenarTabla(ListaCantantesFamosos.cantantesDeMayorAMenor);
-        
-        
-        
+
+        if (ListaCantantesFamosos.cantantesDeMayorAMenor.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Aun no hay cantantes.");
+        } else {
+            llenarTabla(ListaCantantesFamosos.cantantesDeMayorAMenor);
+        }
+
+
     }//GEN-LAST:event_btnActualizarTablaOrdenadaActionPerformed
 
+    
+        
+    class Fondo extends JPanel{
+    
+        private Image imagen;
+        
+        
+        @Override
+        public void paint(Graphics g){
+            imagen = new ImageIcon(getClass().getResource("/imagenes/imagenFondo.jpg")).getImage();
+            
+            
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(),this);
+            
+            setOpaque(false);
+            
+            super.paint(g);
+            
+        }
+    
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -164,9 +200,6 @@ public class ListaOrdenada extends javax.swing.JFrame {
     private javax.swing.JButton btnActualizarTablaOrdenada;
     private javax.swing.JButton btnVolverInicio;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablaOrdenadaCantantes;
     // End of variables declaration//GEN-END:variables
