@@ -16,16 +16,7 @@ public class Test {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        Menu menu = new Menu();
-        
-//        menu.Menu();
 
-    ListaCantantesFamosos cantantesLista = new ListaCantantesFamosos();
-        
-
-        
-//        Pantalla pantalla = new Pantalla(cantantesLista);
         Pantalla pantalla = new Pantalla();
 
         

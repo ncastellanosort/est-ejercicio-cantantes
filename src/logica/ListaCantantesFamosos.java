@@ -20,13 +20,12 @@ public class ListaCantantesFamosos {
 
     public static ArrayList<CantanteFamoso> cantantesDeMayorAMenor = new ArrayList<>();
 
-//    public static Iterator<CantanteFamoso> iterador = cantantes.iterator();
+    
     public static void agregarCantante(String nombre, String disco, int totalVentas) {
 
         cantantes.add(new CantanteFamoso(nombre, disco, totalVentas));
         cantantesDeMayorAMenor.add(new CantanteFamoso(nombre, disco, totalVentas));
 
-//        JOptionPane.showMessageDialog(null, "Agregado Exitosamente");
     }
 
     public static void eliminarCantanteJframe(int ind) {
