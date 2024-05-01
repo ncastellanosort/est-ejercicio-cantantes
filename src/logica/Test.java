@@ -20,9 +20,14 @@ public class Test {
         Menu menu = new Menu();
         
 //        menu.Menu();
+
+    ListaCantantesFamosos cantantesLista = new ListaCantantesFamosos();
         
+
         
+//        Pantalla pantalla = new Pantalla(cantantesLista);
         Pantalla pantalla = new Pantalla();
+
         
         pantalla.setLocationRelativeTo(null);
         pantalla.setResizable(false);

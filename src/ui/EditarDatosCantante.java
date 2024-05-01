@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import logica.CantanteFamoso;
+import logica.ListaCantantesFamosos;
 import static logica.ListaCantantesFamosos.cantantes;
 import static ui.EditarCantante.txtfIndiceEditarCantante;
 
@@ -160,10 +161,15 @@ public class EditarDatosCantante extends javax.swing.JFrame {
 
             int ind = Integer.parseInt(txtfIndiceEditarCantante.getText());
             CantanteFamoso cantanteSeleccionado = cantantes.get(ind - 1);
+            CantanteFamoso cantanteSeleccionado2 = ListaCantantesFamosos.cantantesDeMayorAMenor.get(ind - 1);
 
             cantanteSeleccionado.setNombre(txtfIngresarNombreNuevo.getText());
             cantanteSeleccionado.setDiscoConMasVentas(txtfDiscoConMasVentasNuevo.getText());
-            cantanteSeleccionado.setTotalVentas(Integer.parseInt(txtfNuevoNumeroTotalVentas.getText())); // esta linea esta jodida
+            cantanteSeleccionado.setTotalVentas(Integer.parseInt(txtfNuevoNumeroTotalVentas.getText()));
+
+            cantanteSeleccionado2.setNombre(txtfIngresarNombreNuevo.getText());
+            cantanteSeleccionado2.setDiscoConMasVentas(txtfDiscoConMasVentasNuevo.getText());
+            cantanteSeleccionado2.setTotalVentas(Integer.parseInt(txtfNuevoNumeroTotalVentas.getText()));
 
             JOptionPane.showMessageDialog(null, "Editado Exitosamente!");
 

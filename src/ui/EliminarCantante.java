@@ -105,8 +105,10 @@ public class EliminarCantante extends javax.swing.JFrame {
 
     private void btnEliminarCantanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarCantanteActionPerformed
 
+        
         try {
             ListaCantantesFamosos.eliminarCantanteJframe(Integer.parseInt(txtfnombreEliminarCantante.getText()));
+
 
             JOptionPane.showMessageDialog(null, "Eliminado Exitosamente!");
             this.dispose();

@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import logica.CantanteFamoso;
+import logica.ListaCantantesFamosos;
 import static logica.ListaCantantesFamosos.cantantes;
 
 /**
@@ -111,6 +112,7 @@ public class EditarCantante extends javax.swing.JFrame {
 
             int ind = Integer.parseInt(txtfIndiceEditarCantante.getText());
             CantanteFamoso cantanteSeleccionado = cantantes.get(ind - 1);
+            CantanteFamoso cantanteSeleccionado2 = ListaCantantesFamosos.cantantesDeMayorAMenor.get(ind - 1);
 
             editarDatosCantante.setLocationRelativeTo(null);
             editarDatosCantante.setResizable(false);

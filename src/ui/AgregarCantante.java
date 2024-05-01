@@ -4,7 +4,6 @@
  */
 package ui;
 
-import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import logica.ListaCantantesFamosos;
 
@@ -14,17 +13,11 @@ import logica.ListaCantantesFamosos;
  */
 public class AgregarCantante extends javax.swing.JFrame {
 
-    DefaultListModel modeloLista = new DefaultListModel();
-
     /**
      * Creates new form AgregarCantante
      */
     public AgregarCantante() {
         initComponents();
-
-        Pantalla p = new Pantalla();
-
-        p.getFrameListaCantantes().setModel(modeloLista);
 
     }
 
@@ -116,13 +109,10 @@ public class AgregarCantante extends javax.swing.JFrame {
 
     private void btnAgregarCantanteFrameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCantanteFrameActionPerformed
 
+        
+        
         try {
             ListaCantantesFamosos.agregarCantante(txtfIngresarNombre.getText(), txtfDiscoConMasVentas.getText(), Integer.parseInt(txtfTotalVentas.getText()));
-
-            for (int i = 0; i < ListaCantantesFamosos.cantantes.size(); i++) {
-                modeloLista.addElement(ListaCantantesFamosos.datosTablaFrame(i));
-
-            }
 
             JOptionPane.showMessageDialog(null, "Agregado Exitosamente!");
 
@@ -131,7 +121,6 @@ public class AgregarCantante extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Ingrese los datos correctamente.");
             this.dispose();
         }
-// traer el indice y ese indice agregarlo en la lista
 
 
     }//GEN-LAST:event_btnAgregarCantanteFrameActionPerformed

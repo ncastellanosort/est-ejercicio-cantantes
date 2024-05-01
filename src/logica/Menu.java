@@ -41,12 +41,12 @@ public class Menu {
                         System.out.println("No hay cantantes aun!");
                         break;
                     } else {
-                        ListaCantantesFamosos.mostrarCantantes();
+//                        ListaCantantesFamosos.mostrarCantantes();
                         break;
                     }
 
                 case 3:
-                    ListaCantantesFamosos.editarCantante();
+//                    ListaCantantesFamosos.editarCantante();
                     break;
                 case 4:
 
@@ -64,7 +64,7 @@ public class Menu {
                         System.out.println("No hay cantantes aun.");
                         break;
                     } else {
-                        ListaCantantesFamosos.organizarMayoraMenor();
+//                        ListaCantantesFamosos.organizarMayoraMenor();
                         break;
                     }
                 case 6:
